@@ -21,14 +21,22 @@
         border-left: 1px solid;
         left: 600px;
       }
+      .stat{
+      	float: right;
+        text-align: right;
+	color: green;
+	font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <section id="container">
+      <div id="stat" class="stat">Status</div>
       <h1>Matching Game</h1>
       <p>Click on the extra smilling face on the left.</p>
     <div id="leftSide">    </div>
     <div id="rightSide">    </div>
+    
   </section>
   <script type="text/javascript">
     var d = document.getElementById("leftSide")
@@ -50,7 +58,10 @@
       var x = left.lastChild
       left.removeChild(x)
       rightside.appendChild(left);
-
+     
+      d.lastChild.addEventListener('click', function() {
+	      stat.innerHTML = "Gotcha"; 
+      }); 
 
     };
     d.onload = generateFaces();
